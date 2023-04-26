@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Installr - Easy Desktop Installer</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+</head>
+  
+<body>
+  
+  <h1 class = 'title'>Installr</h1>
+  <p class = 'description' style="border-bottom: 2px solid white; padding-bottom: 20px;"><strong>Easy Desktop Installer Tool</strong></p>
+  
+  <div id = "urlInput">
+    <p class = 'text' style="padding-top: 5px;">Application URL:</p> 
+    <textarea id = 'appURL' class = 'oneLineInput' rows = "1" style="margin-top: -10px; width: 400px;" placeholder="https://example.com"></textarea>
+  </div>
+
+  <button onclick = "addInstall()" style = 'margin-top: 35px; width: 150px; padding: 10px; border-radius: 5px;'>Add Install </button>
+
+  <p id = 'numberOfApps' class = 'text' style="margin-top: 125px; border-top: 2px solid white; padding-top: 20px;">Current Loaded Applications:</p>
+
+  <textarea readonly id = 'appList' class="oneLineInput" rows = "15" style="width: 400px; font-size: 15px; margin-top: -10px;"></textarea>
+
+  <p class = 'text' style="margin-top: 300px; font-size: 15px; color: red"><strong>Make Sure To Disable Your Pop Up Blocker</strong>!</p>
+
+  <button onclick = 'runInstaller()' style = 'width: 150px; padding: 10px; border-radius: 5px;'>Run Installer</button>
+  
+  <button onclick = 'clearInstalls()' style = 'color: tomato; margin-top: 50px; width: 150px; padding: 10px; border-radius: 5px;'>Clear List</button>
+
+  <p class = 'footer'>Created By Rhet0rical @2023 - <a href="https://github.com/TheRhet0rical">GitHub</a> | Based Off Another <a href="https://github.com/TheRhet0rical/install-script">Repository</a></p>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

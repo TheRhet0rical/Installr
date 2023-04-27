@@ -16,3 +16,16 @@ Self-explanatory, just needs a facelift before I deem this finished
 
 ## **Instructions, In-Depth 🗣️**
 All you do is enter the link of the install or website, and when the **Run Install** button is clicked, it'll redirect you to every website in that list. Oh, and due to security reasons, your pop-up blocker will have to be disabled beforehand.
+
+### **Mounting Links/Applications**
+![example!](images/example1.png) \
+This is where you'll enter the link for the app/website. When the ``Add Install`` button is clicked, it'll add that link to the ```appsList``` variable to be loaded when the ``Run Install`` button is clicked.
+
+Your entry must be a **proper link**, or it won't run correctly or open the right page. It's important your link includes...
+* An HTTPS:// Protocol (*example: https://example.com*)
+* An Url Ending Like *.com* or *.net*
+
+### **Finding Install Links**
+You can find any install link by going somwhere like ``https://store.steampowered.com/about/`` and right clicking the install button, in this case a blue *Install Steam* button, and copying the link to that button. Once you have that link, you can paste in into *Installr* and add it to the ``appsList``.
+
+![example2](images/example2.png)

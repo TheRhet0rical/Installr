@@ -1,39 +1,27 @@
-let i = 0;
+// Variables
+var i = 0;
+var appsList = []
 
-let currentApps = [
-  'https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x86',
-  'https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe'
-]
+function getWebsiteLink(){
 
-function init(){
-  document.getElementById('appList').innerHTML = currentApps;
-  document.getElementById('numberOfApps').innerHTML = `Current Loaded Applications (${currentApps.length}):`
+    return document.getElementById('urlTextArea').value;
+
 }
 
-function addInstall(){
-  let currentURL = document.getElementById('appURL').value;
-  if (currentURL == '' || currentURL == null){
-    alert('URL Textbox Is Empty.')
-  } else {
-    currentApps.push(currentURL);
-    document.getElementById('appList').innerHTML = currentApps;
-    document.getElementById('numberOfApps').innerHTML = `Current Loaded Applications (${currentApps.length}):`
-  }
+function submitLink(){
+    let link = getWebsiteLink();
+
+    if(link.includes('https://') == true && link != ''){
+
+        appsList.push(link + '\n');
+        console.log(`Added \"${link}\" To appslist.`)
+        document.getElementById('appList').innerHTML = appsList;
+        document.getElementById('appListTitle').innerHTML = `<strong>Application List (${appsList.length}):</strong>`
+
+    } else {
+
+        console.error(`Link \"${link}\" Is Not A Valid URL. Check it and try again.`);
+        alert(`The item you entered is not a URL. Ensure your URL contains \"https://\" or \"http://\" and try again.`);    
+
+    }
 }
-
-function runInstaller(){
-
-  for(i = 0; i < currentApps.length; i++){
-    window.open(currentApps[i]);
-  }
-  
-}
-
-function clearInstalls(){
-  currentApps = [];
-
-  document.getElementById('appList').innerHTML = currentApps;
-  document.getElementById('numberOfApps').innerHTML = `Current Loaded Applications (${currentApps.length}):`
-}
-
-init();

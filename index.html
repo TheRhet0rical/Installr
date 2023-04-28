@@ -2,38 +2,54 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Installr - Easy Desktop Installer</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel="icon" type="image/x-icon" href="images/favicon.svg">
+    <title>Installr - Desktop Installer Tool</title>
+    <link rel = 'icon' type = 'image/x-icon' href = 'images/favicon.svg'/>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href = 'style.css' rel = 'stylesheet' type = 'text/css'/>
 </head>
-  
+
 <body>
-  
-  <h1 class = 'title'>Installr</h1>
-  <p class = 'description' style="border-bottom: 2px solid white; padding-bottom: 20px;"><strong>Easy Desktop Installer Tool</strong></p>
-  
-  <div id = "urlInput">
-    <p class = 'text' style="padding-top: 5px;">Application URL:</p> 
-    <textarea id = 'appURL' class = 'oneLineInput' rows = "1" style="margin-top: -10px; width: 400px;" placeholder="https://example.com"></textarea>
-  </div>
 
-  <button onclick = "addInstall()" style = 'margin-top: 35px; width: 150px; padding: 10px; border-radius: 5px;'>Add Install </button>
 
-  <p id = 'numberOfApps' class = 'text' style="margin-top: 125px; border-top: 2px solid white; padding-top: 20px;">Current Loaded Applications:</p>
+    <div class = 'title textShadow' style = 'margin-top: -60px;'>
+        <h1>Installr</h1>
+        <p class = 'line' style="font-size: 20px; margin-top: -60px;">
+            <strong>Easy Desktop Installer Tool</strong>
+        </p>
+    </div>
 
-  <textarea readonly id = 'appList' class="oneLineInput" rows = "15" style="width: 400px; font-size: 15px; margin-top: -10px;"></textarea>
 
-  <p class = 'text' style="margin-top: 300px; font-size: 15px; color: red"><strong>Make Sure To Disable Your Pop Up Blocker</strong>!</p>
+    <div class = 'inputArea'>
+        <p class = 'basicText textShadow' style='padding-top: 5px;'>
+            <strong>Website Link:</strong>
+        </p>
 
-  <button onclick = 'runInstaller()' style = 'width: 150px; padding: 10px; border-radius: 5px;'>Run Installer</button>
-  
-  <button onclick = 'clearInstalls()' style = 'color: tomato; margin-top: 50px; width: 150px; padding: 10px; border-radius: 5px;'>Clear List</button>
+        <textarea id = 'urlTextArea' class = 'basicText centered' rows = '15' placeholder = 'https://example.com'></textarea>
+        <button onclick = 'submitLink()' class = 'basicButton centered' style = 'background-color: lightgreen;'>Submit Link</button>
+    </div>
 
-  <p class = 'footer'>Created By Rhet0rical @2023 - <a href="https://github.com/TheRhet0rical">GitHub</a> | Based Off Another <a href="https://github.com/TheRhet0rical/install-script">Repository</a></p>
-  
-  <script src="script.js"></script>
+
+    <div class = 'installer'>
+        <p id = 'appListTitle' class = 'basicText textShadow'>
+            <strong>Application List (0):</strong>
+        </p>
+
+        <textarea readonly id = 'appList' class = 'centered'></textarea>
+
+        <div style = 'display: flex; justify-content: center;'>
+            <button onclick = 'loadFromCookies()' class = 'basicButton' style = 'background-color: lightblue; margin-right: 20px;'>Load Links From Browser</button>
+            <button class = 'basicButton' style = 'background-color: lightcoral; margin-right: 20px;'>Run Installer</button>
+            <button onclick = 'saveToCookies()' class = 'basicButton' style = 'background-color: lightsalmon;'>Save List To Browser</button>
+        </div> 
+    </div>
+
+    <p id = 'footer' class = 'basicText textShadow'>
+        Created By <a href = 'https://rhet0rical.dev'>Rhet0rical</a>. Release 4/27. Hosted On <a href = 'https://github.com/TheRhet0rical/Installr'>GitHub</a>.
+    </p>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

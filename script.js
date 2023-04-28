@@ -14,7 +14,8 @@ function submitLink(){
     if(link.includes('https://') == true && link != ''){
 
         appsList.push(link + '\n');
-        console.log(`Added \"${link}\" To appslist.`)
+        console.log(`Added \"${link}\" To appslist.`);
+        document.getElementById('urlTextArea').value = null;
         document.getElementById('appList').innerHTML = appsList;
         document.getElementById('appListTitle').innerHTML = `<strong>Application List (${appsList.length}):</strong>`
 
@@ -23,5 +24,11 @@ function submitLink(){
         console.error(`Link \"${link}\" Is Not A Valid URL. Check it and try again.`);
         alert(`The item you entered is not a URL. Ensure your URL contains \"https://\" or \"http://\" and try again.`);    
 
+    }
+}
+
+function runInstaller(){
+    for(i = 0; i < appsList.length; i++){
+        window.open(appsList[i]);
     }
 }

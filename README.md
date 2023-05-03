@@ -1,15 +1,12 @@
-# **Installr** ⬇️ - *Release 4/28*
+# **Installr** ⬇️ - *Release 1.3*
 Installr is a multi-application installer tool that gets rid of constantly installing multiple applications online.
 
 Instead of doing the grueling task of downloading the same 15 apps on your new computer, or multiple computers at a time, Installr gets rid of the time-consuming task of going to all these websites and condenses them into a one-time setup task that installs everything in the click of one button.
 
 ## **Disclaimer ⚠️**
-Since Installr is still in active development, some features will be implemented over time. These features are listed below.
-- [ ] **Download Caching** 💾 \
+Installr is no longer in active development, but you can check on what i've added over time below.
+- [x] **Download Caching** 💾 \
 This feature will need to get implemented because, without it, it completely renders this program useless.
-
-- [ ] **Link Library** 📚 \
-Add a link library for people to upload and share lists of links for people to download.
 
 - [x] **Major Rewrite** ✍️ \
 This entire project needs a rewrite since it was put together in a few hours, and the CSS is a mess and not easy to build off of.

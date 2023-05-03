@@ -1,4 +1,4 @@
-# **Installr** ⬇️ - *Release 1.3*
+# **Installr** ⬇️ - *Release 1.3.1*
 Installr is a multi-application installer tool that gets rid of constantly installing multiple applications online.
 
 Instead of doing the grueling task of downloading the same 15 apps on your new computer, or multiple computers at a time, Installr gets rid of the time-consuming task of going to all these websites and condenses them into a one-time setup task that installs everything in the click of one button.

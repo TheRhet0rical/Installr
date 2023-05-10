@@ -33,6 +33,34 @@ input:hover {
   transition: all ease-in-out 0.1s;
 }
 
+.footerButton {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  font-size: 11px;
+  background-color: gainsboro;
+  border-radius: 10px;
+  
+  cursor: default;
+  transition: all ease-in-out 0.1s;
+}
+
+.footerButton:hover {
+  cursor: pointer;
+  
+  color: white;
+  background-color: darkgrey;
+  transition: all ease-in-out 0.1s;
+}
+
 /* Class Specific CSS */
 
 #title {
@@ -48,34 +76,6 @@ input:hover {
 #linkHandler {
   color: white;
   text-align: center;
-}
-
-#credit {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-
-  padding-left: 10px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  font-size: 11px;
-  background-color: gainsboro;
-  border-radius: 30px;
-  
-  cursor: default;
-  transition: all ease-in-out 0.1s;
-}
-
-#credit:hover {
-  cursor: pointer;
-  
-  color: white;
-  background-color: #333333;
-  transition: all ease-in-out 0.1s;
 }
 
 #submitButton:hover {

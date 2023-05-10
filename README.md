@@ -1,7 +1,14 @@
-# **Installr** ⬇️ - *Release 1.3.1*
+# **Installr** ⬇️ - *Release 1.3.2*
 Installr is a multi-application installer tool that gets rid of constantly installing multiple applications online.
 
 Instead of doing the grueling task of downloading the same 15 apps on your new computer, or multiple computers at a time, Installr gets rid of the time-consuming task of going to all these websites and condenses them into a one-time setup task that installs everything in the click of one button.
+
+## **Update 1.3.2 Notes** 📝
+- Added a "Visit On GitHub" footer button that redirects the user to the website's GitHub repository.
+- Made the hover color for the footer buttons a lighter grey.
+- Added a link counter by using the ``allLinks.length`` statement. Updates every **submit**, **load**, or **run**.
+- Rounded The Footer Buttons From ``30px`` to ``10px``.
+- Made it where the website will use an ``alert()`` statement to let you know if you sucessfully save your links or not.
 
 ## **Disclaimer ⚠️**
 Installr is no longer in active development, but you can check on what i've added over time below.

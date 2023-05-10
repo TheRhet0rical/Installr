@@ -9,9 +9,17 @@ let loadButton = document.getElementById('loadButton');
 let runButton = document.getElementById('runButton');
 
 let linkArea = document.getElementById('linkArea');
+let linkHandler = document.getElementById('linkHandlerText');
 let allLinksArea = document.getElementById('allLinksArea');
 
-let creditButton = document.getElementById('credit');
+let homepageButton = document.getElementById('homepageButton');
+let githubButton = document.getElementById('githubButton');
+
+// Render Link Counter
+function renderLinks(){
+    linkHandler.innerHTML = `<b>All Currently Loaded Links (${allLinks.length})<b>`
+    console.log('Successfully Rendered Link Counter:' + allLinks.length);
+}
 
 // Submit Button Code
 submitButton.addEventListener('click', function(){
@@ -28,6 +36,7 @@ submitButton.addEventListener('click', function(){
         console.log(`Failed To Add \"${submittedURL}\" To Links List.`);
         alert(`The item you entered is invalid. Ensure your link contains an \"https://\" and try again.`);
     }
+    renderLinks();
 
 });
 
@@ -37,10 +46,13 @@ saveButton.addEventListener('click', function(){
     
     try {
         localStorage.setItem('links', allLinks);
+        alert(`Successfully Saved Data To LocalStorage.`);
         console.log(`Successfully Saved Data To LocalStorage.`);
     } catch (error) {
+        alert(`Failed To Save Data To LocalStorage: ${error}`)
         console.error(`Failed To Save Data To LocalStorage: ${error}`);
     }
+    renderLinks();
 
 });
 
@@ -52,12 +64,13 @@ loadButton.addEventListener('click', function(){
         allLinks = localStorage.getItem('links');
         allLinksArea.innerHTML = allLinks;
 
-        alert('Successfully Fetched Data From LocalStorage.');
+        alert('Successfully Loaded Data From LocalStorage.');
         console.log(`Successfully Fetched Data From LocalStorage: ${allLinks}`);
     } catch (error) {
-        alert(`Failed To Fetch Data From LocalStorage: ${error}`);
+        alert(`Failed To Load Data From LocalStorage: ${error}`);
         console.error(`Failed To Pull Data From LocalStorage: ${error}`);
     }
+    renderLinks();
 
 });
 
@@ -81,10 +94,16 @@ runButton.addEventListener('click', function(){
         alert('Failed To Run: No links are loaded.');
         console.error('Failed To Run: No links are loaded');
     }
+    renderLinks();
 
 });
 
-// Credit Button
-creditButton.addEventListener('click', function(){
+// Homepage Button
+homepageButton.addEventListener('click', function(){
     window.open('https://rhet0rical.dev/');
+})
+
+// Alternate GitHub Button
+githubButton.addEventListener('click', function(){
+    window.open('https://github.com/TheRhet0rical');
 })

@@ -45,8 +45,8 @@ saveButton.addEventListener('click', function(){
         if (linkList.length > 0){
             localStorage.setItem('StorageLinkList', JSON.stringify(linkList));
 
-            console.log(`Saved Preset: ${localStorage.getItem('linkList')}.`);
-            alert(`Saved Preset: ${localStorage.getItem('linkList')}.`);
+            console.log(`Saved Preset: ${JSON.stringify(linkList)}.`);
+            alert(`Saved Preset: ${JSON.stringify(linkList)}.`);
         } else {
             console.log('Error Saving Preset: Empty List.')
             alert('Error Saving Preset: Empty List.');

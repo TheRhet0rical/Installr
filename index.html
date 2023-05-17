@@ -3,7 +3,7 @@
 
 <head>
   <title>Installr</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href = 'assets/images/favicon.svg'>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -12,53 +12,57 @@
 
 <body>
 
-  <div id = 'title' class = 'text-shadow' style = 'margin-top: -40px;'>
-    <div style = 'display: flex; align-items: center; justify-content: center;'>
-      <img src = 'images/favicon.svg' width = 100 height = 100>
-      <h1 style = 'padding-left: 20px; font-size: 85px;'>Installr</h1>
+  <div id = 'title' style = 'padding-top: 2%;'>
+
+    <div id = 'topTitle'>
+      <img src = 'assets/images/favicon.svg' width = 80>
+      <h1 style = 'font-size: 70px; padding-left: 10px;'>Installr</h1>
     </div>
 
-    <p style = 'margin-top: -50px; padding-bottom: 55px;' class = 'line'>
-      Convenient Multi-Application Installer Tool. Build <b>1.3.2</b>.
-    </p>
+    <div style = 'display: flex; justify-content: center;'>
+      <p id = 'bottomTitle' class = 'line'>
+        Convenient Multi-Application Installer Tool. Build <b>1.4</b>.
+      </p>
+    </div>
+
   </div>
 
-  <div id = 'linkInput' class = 'text-shadow'>
-    <p style = 'padding-top: 10px;'>
-      <b>Enter Website Link</b> (<i>must contain 'https://'</i>)
-    </p>
+  <div id = linkHandler>
+    <p><b>Enter Website Link</b> <i>(must contain 'https://')</i></p>
+    <textarea id = 'urlTextbox' class = 'linkArea' style = 'margin: -5px; resize: none;' rows = 1 cols = 70 placeholder = 'https://example.com/download'></textarea>
+    <input id = 'submitButton' type = 'button' style = 'margin-top: 20px;' value = 'Submit Link'>
 
-    <textarea id = 'linkArea' style = 'margin: -5px; resize: none;' rows = 1 cols = 60 placeholder = 'https://example.com/download'></textarea>
-    <br>
-    <input id = 'submitButton' style = 'margin-top: 13px;' type = 'button' value = 'Submit'>
-  </div>
+    <div style = 'display: flex; justify-content: center;'>
+      <p class = 'line' style = 'padding-top: 20px;'></p>
+    </div>
 
-  <div id = 'linkHandler' style = 'padding-top: 10px;'>
-    <p id = 'linkHandlerText' class = 'text-shadow altLine' style = 'padding-top: 25px;'>
-      <b>All Currently Loaded Links (0)</b>
-    </p>
+    <p class = line style = 'margin-top: -15px;'></p>
 
-    <textarea readonly id = 'allLinksArea' style = 'margin: -5px; resize: none;' rows = 13 cols = 80 placeholder = 'No Links Are Loaded'></textarea>
+    <p id = linkHandlerTitle><b>
+      Currently Mounted Links <i>(0)</i>
+    </b>:</p>
 
-    <div style = 'display: flex; justify-content: center; padding-top: 10px;'>
-      <input id = 'saveButton' type = 'button' value = 'Save' style = 'margin-right: 5px;'>
-      <input id = 'loadButton' type = 'button' value = 'Load' style = 'margin-right: 5px;'>
+    <textarea readonly id = 'linkHolder' rows = 15 cols = 70 placeholder = 'None'></textarea>
+
+    <div style = 'display: flex;'>
+      <input id = 'undoButton' type = 'button' value = 'Undo' style = 'margin-right: 10px;'>
+      <input id = 'saveButton' type = 'button' value = 'Save Preset' style = 'margin-right: 10px;'>
+      <input id = 'loadButton' type = 'button' value = 'Load Preset' style = 'margin-right: 10px;'>
       <input id = 'runButton' type = 'button' value = 'Run'>
     </div>
+
+    <br>
+
+    <p class = line></p>
+    <p style = 'font-size: 10px; margin-top: -5px;'>
+      This website was created and maintained by Rhet0rical on GitHub.
+    </p>
+    
   </div>
 
-  <div id = 'footer'>
-    <p class = 'line' style = 'padding-top: 15px;width: 100%;'></p>
-  </div>
-
-  <div class = 'footerButton' id = 'homepageButton'>
-    <img style = 'border-radius: 20px;' src = 'images/Rhet0rical.png' width = 30px>
-    <p style = 'padding-left: 10px;'>Created By Rhet0rical</p>
-  </div>
-
-  <div class = 'footerButton' id = 'githubButton' style = 'bottom: 60px;'>
-    <img style = 'border-radius: 20px;' src = 'images/github.png' width = 30px>
-    <p style = 'padding-left: 10px;'>Visit On GitHub</p>
+  <div id = 'footerButton'>
+    <img src = 'assets/images/pillBottle.png' width = 50>
+    <p>Created By Rhet0rical</p>
   </div>
 
   <script src="script.js"></script>

@@ -1,109 +1,91 @@
-// Misc Variables
-var i = 0;
-var allLinks = [];
+// Elements
 
-// Objects
-let submitButton = document.getElementById('submitButton');
-let saveButton = document.getElementById('saveButton');
-let loadButton = document.getElementById('loadButton');
-let runButton = document.getElementById('runButton');
+const urlTextbox = document.getElementById('urlTextbox');
+const submitButton = document.getElementById('submitButton');
+const linkHandlerTitle = document.getElementById('linkHandlerTitle');
+const linkHolder = document.getElementById('linkHolder');
 
-let linkArea = document.getElementById('linkArea');
-let linkHandler = document.getElementById('linkHandlerText');
-let allLinksArea = document.getElementById('allLinksArea');
+// Buttons
+const undoButton = document.getElementById('undoButton');
+const saveButton = document.getElementById('saveButton');
+const loadButton = document.getElementById('loadButton');
+const runButton = document.getElementById('runButton');
+const footerButton = document.getElementById('footerButton');
 
-let homepageButton = document.getElementById('homepageButton');
-let githubButton = document.getElementById('githubButton');
+var linkList = [];
 
-// Render Link Counter
-function renderLinks(){
-    linkHandler.innerHTML = `<b>All Currently Loaded Links (${allLinks.length})<b>`
-    console.log('Successfully Rendered Link Counter:' + allLinks.length);
+// Functions
+function renderList(){
+    linkHolder.value = linkList.join('');
+    linkHandlerTitle.innerHTML = `<b>Currently Mounted Links <i>(${linkList.length})</i></b> :`
 }
 
-// Submit Button Code
 submitButton.addEventListener('click', function(){
-
-    let submittedURL = linkArea.value;
-
-    if (submittedURL.includes('https://') == true && submittedURL.includes('.')){
-        allLinks.push(submittedURL);
-        console.log(`Added \"${submittedURL}\" To Links List.`);
-
-        allLinksArea.innerHTML = allLinks;
-        linkArea.value = '';
-    } else {
-        console.log(`Failed To Add \"${submittedURL}\" To Links List.`);
-        alert(`The item you entered is invalid. Ensure your link contains an \"https://\" and try again.`);
-    }
-    renderLinks();
-
-});
-
-// Save Button Code
-saveButton.addEventListener('click', function(){
-    console.log(`Attempting To Save ${allLinks} To LocalStorage...`);
+    let submittedURL = urlTextbox.value;
     
-    try {
-        localStorage.setItem('links', allLinks);
-        alert(`Successfully Saved Data To LocalStorage.`);
-        console.log(`Successfully Saved Data To LocalStorage.`);
-    } catch (error) {
-        alert(`Failed To Save Data To LocalStorage: ${error}`)
-        console.error(`Failed To Save Data To LocalStorage: ${error}`);
-    }
-    renderLinks();
-
-});
-
-// Load Button
-loadButton.addEventListener('click', function(){
-    console.log(`Attempting To Load From LocalStorage...`);
-
-    try {
-        allLinks = localStorage.getItem('links');
-        allLinksArea.innerHTML = allLinks;
-
-        alert('Successfully Loaded Data From LocalStorage.');
-        console.log(`Successfully Fetched Data From LocalStorage: ${allLinks}`);
-    } catch (error) {
-        alert(`Failed To Load Data From LocalStorage: ${error}`);
-        console.error(`Failed To Pull Data From LocalStorage: ${error}`);
-    }
-    renderLinks();
-
-});
-
-// Run Button
-runButton.addEventListener('click', function(){
-
-    if (allLinks.length > 0){
-
-        console.log(`Attempting To Open ${allLinks.length} Links...`)
-        try {
-            for (var i = 0; i < allLinks.length; i++){
-                console.log(`Opening ${allLinks[i]}...`);
-                window.open(allLinks[i]);
-            }
-        } catch (error) {
-            alert(`Failed To Run: ${error}`);
-            console.log(`Failed To Run: ${error}`);
-        }
-
+    // Check If URL Has 'https://' and domain segway.
+    if (submittedURL.includes('https://') == true){
+        linkList.push(`• ${submittedURL}\n`);
+        console.log(`Added: \"${submittedURL}\" To linkList.`)
     } else {
-        alert('Failed To Run: No links are loaded.');
-        console.error('Failed To Run: No links are loaded');
+        console.log(`Failed To Add: \"${submittedURL}\" To linkList. No HTTPS Protocol Was Entered.`);
+        alert(`Failed To Add: \"${submittedURL}\" To linkList. No HTTPS Protocol Was Entered.`);
     }
-    renderLinks();
+    renderList();
 
-});
-
-// Homepage Button
-homepageButton.addEventListener('click', function(){
-    window.open('https://rhet0rical.dev/');
 })
 
-// Alternate GitHub Button
-githubButton.addEventListener('click', function(){
-    window.open('https://github.com/TheRhet0rical');
+undoButton.addEventListener('click', function(){
+    console.log(`Undid ${linkList.pop()}.`);
+    renderList();
+})
+
+saveButton.addEventListener('click', function(){
+    try {
+        if (linkList.length > 0){
+            localStorage.setItem('StorageLinkList', JSON.stringify(linkList));
+
+            console.log(`Saved Preset: ${localStorage.getItem('linkList')}.`);
+            alert(`Saved Preset: ${localStorage.getItem('linkList')}.`);
+        } else {
+            console.log('Error Saving Preset: Empty List.')
+            alert('Error Saving Preset: Empty List.');
+        }
+    } catch (error) {
+        console.log(`Error Saving Preset: ${error}`);
+        alert(`Error Saving Preset: ${error}`);
+    }
+})
+
+loadButton.addEventListener('click', function(){
+    try {
+        linkList = JSON.parse(localStorage.getItem('StorageLinkList'));
+        console.log(linkList);
+        renderList();
+        
+        console.log(`Loaded Preset: ${linkList}.`);
+        alert(`Loaded Preset: ${linkList}.`);
+    } catch (error) {
+        console.log(`Error Loading Preset: ${error}`);
+        alert(`Error Loading Preset: ${error}`);
+    }
+})
+
+runButton.addEventListener('click', function(){
+    
+    for (i = 0; i < linkList.length; i++){
+
+        try {
+            console.log(`Attempting To Open: ${linkList[i]}...`)
+            window.open(linkList[i].replace('•', ''));
+        } catch (error) {
+            console.log(`Failed To Open: ${linkList[i]}, ${error}`)
+        }
+
+    }
+
+})
+
+footerButton.addEventListener('click', function(){
+    window.open('https://github.com/TheRhet0rical/installr');
 })

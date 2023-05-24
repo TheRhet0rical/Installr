@@ -98,5 +98,5 @@ runButton.addEventListener('click', function(){
 })
 
 libraryButton.addEventListener('click', function(){
-    window.open('/library.html');
+    window.open('/installr/library.html');
 })

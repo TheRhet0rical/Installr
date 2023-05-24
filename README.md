@@ -1,4 +1,4 @@
-# **Installr** ⬇️ - Release *2.0*
+# **Installr** ⬇️ - Release *2.1*
 Installr is a web application designed to ease the *daunting* task of downloading multiple items at one time.
 
 Instead of doing the grueling task of downloading the same 15 apps on your new computer, or multiple computers at a time, Installr gets rid of the time-consuming task of going to all these websites and condenses them into a one-time setup task that installs everything in the click of one button.

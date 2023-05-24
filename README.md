@@ -1,12 +1,23 @@
-# **Installr** ⬇️ - *Release 1.4.1*
-Installr is a multi-application installer tool that gets rid of constantly installing multiple applications online.
+# **Installr** ⬇️ - Release *2.0*
+Installr is a web application designed to ease the *daunting* task of downloading multiple items at one time.
 
 Instead of doing the grueling task of downloading the same 15 apps on your new computer, or multiple computers at a time, Installr gets rid of the time-consuming task of going to all these websites and condenses them into a one-time setup task that installs everything in the click of one button.
 
-## **Update 1.4.1 Notes**
+## **Note** 📒
+Since the website will attempt to open multiple items at one time, you will need to **disable your pop-up blocker**. Usually, when you first run it, it will let you know in your URL bar. After you do this, everything should work fine from there.
+
+### **Update 2.0 Notes** 📝
+* Added Link Library Functionality (Behind Access Key Temporarily)
+* COMPLETE Website Redesign.
+* Removed Header.
+* Fancied *Everything*.
+* Removed Mobile Functionality.
+* Changed Logo.
+
+### **Update 1.4.1 Notes** 📝
 * Fixed the ``Save Preset`` button giving out the wrong alert.
 
-## **Update 1.4 Notes** 📝
+### **Update 1.4 Notes** 📝
 * Sorted MD and website images from each other.
 * Another website face lift.
 * Added an "**UNDO**" button that removes the last entry.
@@ -15,29 +26,12 @@ Instead of doing the grueling task of downloading the same 15 apps on your new c
 * Changed Footer Design
 * Changed the overall font for the website from ``verdana`` to ``system-ui``.
 
-## **Disclaimer ⚠️**
-Installr is no longer in active development, but you can check on what i've added over time below.
-- [x] **Download Caching** 💾 \
-This feature will need to get implemented because, without it, it completely renders this program useless.
+## **How To Use Installr** 🤔
+You can use installer by finding your own link online, or by using the **Link Library**, where we have saved a variety of links of ordinary apps such as...
 
-- [x] **Major Rewrite** ✍️ \
-This entire project needs a rewrite since it was put together in a few hours, and the CSS is a mess and not easy to build off of.
-
-- [x] **Style Change** 🦋 \
-Self-explanatory, just needs a facelift before I deem this finished
-
-## **Instructions, In-Depth 🗣️**
-All you do is enter the link of the install or website, and when the **Run Install** button is clicked, it'll redirect you to every website in that list. Oh, and due to security reasons, your pop-up blocker will have to be disabled beforehand.
-
-### **Mounting Links/Applications**
-![example!](assets/mdresources/example1.png) \
-This is where you'll enter the link for the app/website. When the ``Add Install`` button is clicked, it'll add that link to the ```appsList``` variable to be loaded when the ``Run Install`` button is clicked.
-
-Your entry must be a **proper link**, or it won't run correctly or open the right page. It's important your link includes...
-* An HTTPS:// Protocol (*example: https://example.com*)
-* An Url Ending Like *.com* or *.net*
-
-### **Finding Install Links**
-You can find any install link by going somwhere like ``https://store.steampowered.com/about/`` and right clicking the install button, in this case a blue *Install Steam* button, and copying the link to that button. Once you have that link, you can paste in into *Installr* and add it to the ``appsList``.
-
-![example2](assets/mdresources/example2.png)
+* Discord
+* Spotify
+* VSCode 
+* Steam
+* GitHub Desktop
+* Google Chrome

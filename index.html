@@ -2,67 +2,72 @@
 <html>
 
 <head>
-  <title>Installr</title>
-  <link rel="icon" type="image/x-icon" href = 'assets/images/favicon.svg'>
-
+  <title>Installr - Multi-App Installer</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link href="style.css" rel="stylesheet" type="text/css" />
+
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.svg">
 </head>
 
 <body>
 
-  <div id = 'title' style = 'padding-top: 2%;'>
-
-    <div id = 'topTitle'>
-      <img src = 'assets/images/favicon.svg' width = 80>
-      <h1 style = 'font-size: 70px; padding-left: 10px;'>Installr</h1>
-    </div>
-
-    <div style = 'display: flex; justify-content: center;'>
-      <p id = 'bottomTitle' class = 'line'>
-        Convenient Multi-Application Installer Tool. Build <b>1.4.1</b>.
-      </p>
-    </div>
-
+  <div id = 'header' class = 'flexbox'>
+    <img src = 'assets/favicon.svg' width = 60 height = 50>
+    <p style = 'padding-left: 10px;'>Installr</p>
   </div>
 
-  <div id = linkHandler>
-    <p><b>Enter Website Link</b> <i>(must contain 'https://')</i></p>
-    <textarea id = 'urlTextbox' class = 'linkArea' style = 'margin: -5px; resize: none;' rows = 1 cols = 70 placeholder = 'https://example.com/download'></textarea>
-    <input id = 'submitButton' type = 'button' style = 'margin-top: 20px;' value = 'Submit Link'>
+  <p style = 'margin-top: -40px;'>
+    Convenient Multi-Application Installer Tool. Build 2.0.
+  </p>
 
-    <div style = 'display: flex; justify-content: center;'>
-      <p class = 'line' style = 'padding-top: 20px;'></p>
-    </div>
+  <p class = 'line'></p>
 
-    <p class = line style = 'margin-top: -15px;'></p>
-
-    <p id = linkHandlerTitle><b>
-      Currently Mounted Links <i>(0)</i>
-    </b>:</p>
-
-    <textarea readonly id = 'linkHolder' rows = 15 cols = 70 placeholder = 'None'></textarea>
-
-    <div style = 'display: flex;'>
-      <input id = 'undoButton' type = 'button' value = 'Undo' style = 'margin-right: 10px;'>
-      <input id = 'saveButton' type = 'button' value = 'Save Preset' style = 'margin-right: 10px;'>
-      <input id = 'loadButton' type = 'button' value = 'Load Preset' style = 'margin-right: 10px;'>
-      <input id = 'runButton' type = 'button' value = 'Run'>
-    </div>
-
-    <br>
-
-    <p class = line></p>
-    <p style = 'font-size: 10px; margin-top: -5px;'>
-      This website was created and maintained by Rhet0rical on GitHub.
-    </p>
+  <div>
     
+    <p class = 'title'>Enter Your URL</p>
+    <p class = 'description'>Make sure your URL contains an 'https://' for it to submit properly.</p>
+    <textarea id = 'urlTextBox' rows = 1 placeholder = 'https://google.com/download'></textarea>
+
+    <div class = 'flexbox' style = 'margin-top: 10px;'>
+
+      <div id = 'submitButton' class = 'button'>
+        Submit Link
+      </div>
+  
+      <div id = 'libraryButton' class = 'button' style = 'margin-left: 10px;'>
+        Link Library
+      </div>
+
   </div>
 
-  <div id = 'footerButton'>
-    <img src = 'assets/images/pillBottle.png' width = 50>
-    <p>Created By Rhet0rical</p>
+  <p class = 'line' style = 'margin-top: 20px;'></p>
+
+  <div>
+
+    <p id = 'linksListTitle' class = 'title'>Currently Mounted Links (0)</p>
+    <p class = 'description'>This is where all of your mounted links will show! Check it out!</p>
+    <textarea readonly id = 'linksBox' rows = 15 placeholder = 'No Links Are Loaded. Try Submitting Some!'></textarea>
+
+    <div class = 'flexbox' style = 'margin-top: 10px;'>
+
+      <div id = 'saveButton' class = 'button'>
+        Save Preset
+      </div>
+  
+      <div id = 'loadButton' class = 'button' style = 'margin-left: 10px;'>
+        Load Preset
+      </div>
+
+      <div id = 'runButton' class = 'button' style = 'margin-left: 10px;'>
+        Run
+      </div>
+
+  </div>
+
+  <p class = 'line' style = 'margin-top: 20px;'></p>
+
+  <div id = 'footer'>
+    <p>This website is maintained by Rhet0rical on Github. Visit <a href = 'https://github.com/TheRhet0rical/installr'>Here</a>.</p>
   </div>
 
   <script src="script.js"></script>

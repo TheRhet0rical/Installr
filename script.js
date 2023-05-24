@@ -1,91 +1,102 @@
-// Elements
+// Objects
 
-const urlTextbox = document.getElementById('urlTextbox');
-const submitButton = document.getElementById('submitButton');
-const linkHandlerTitle = document.getElementById('linkHandlerTitle');
-const linkHolder = document.getElementById('linkHolder');
+const urlTextBox = document.getElementById('urlTextBox');
+const linksBox = document.getElementById('linksBox');
+const linksListTitle = document.getElementById('linksListTitle');
 
 // Buttons
-const undoButton = document.getElementById('undoButton');
+
+const submitButton = document.getElementById('submitButton');
+const libraryButton = document.getElementById('libraryButton');
 const saveButton = document.getElementById('saveButton');
 const loadButton = document.getElementById('loadButton');
 const runButton = document.getElementById('runButton');
-const footerButton = document.getElementById('footerButton');
 
-var linkList = [];
+// Misc 
 
-// Functions
+var i = 0;
+var linksList = [];
+
 function renderList(){
-    linkHolder.value = linkList.join('');
-    linkHandlerTitle.innerHTML = `<b>Currently Mounted Links <i>(${linkList.length})</i></b> :`
+    linksListTitle.innerHTML = `Currently Mounted Links (${linksList.length})`;
+    linksBox.value = linksList.join('');
 }
 
+// Check For Mobile Devices
+if (screen.width <= 480){
+    location.href = 'https://rhet0rical.dev/mobile.html';
+}
+
+// Events
+
 submitButton.addEventListener('click', function(){
-    let submittedURL = urlTextbox.value;
-    
-    // Check If URL Has 'https://' and domain segway.
+
+    let submittedURL = urlTextBox.value;
+
+    console.log(`Attempting To Mount \"${submittedURL}\" Onto linksList...`);
     if (submittedURL.includes('https://') == true){
-        linkList.push(`• ${submittedURL}\n`);
-        console.log(`Added: \"${submittedURL}\" To linkList.`)
+        linksList.push(`• ${submittedURL}\n`);
+        console.log('Added Successfully.');
     } else {
-        console.log(`Failed To Add: \"${submittedURL}\" To linkList. No HTTPS Protocol Was Entered.`);
-        alert(`Failed To Add: \"${submittedURL}\" To linkList. No HTTPS Protocol Was Entered.`);
+        console.error('Failed To Add Item. Check To Make Sure It Contains An \"https://\" And Try Again.');
+        alert('Failed To Add Item. Check To Make Sure It Contains An \"https://\" And Try Again.');
     }
+
     renderList();
 
-})
-
-undoButton.addEventListener('click', function(){
-    console.log(`Undid ${linkList.pop()}.`);
-    renderList();
-})
+});
 
 saveButton.addEventListener('click', function(){
+    
+    console.log(`Attempting To Save \"${linksList}\" To LocalStorage...`);
     try {
-        if (linkList.length > 0){
-            localStorage.setItem('StorageLinkList', JSON.stringify(linkList));
-
-            console.log(`Saved Preset: ${JSON.stringify(linkList)}.`);
-            alert(`Saved Preset: ${JSON.stringify(linkList)}.`);
-        } else {
-            console.log('Error Saving Preset: Empty List.')
-            alert('Error Saving Preset: Empty List.');
-        }
+        localStorage.setItem('storedLinksList', JSON.stringify(linksList));
+        console.log('Successfully Saved To LocalStorage.');
     } catch (error) {
-        console.log(`Error Saving Preset: ${error}`);
-        alert(`Error Saving Preset: ${error}`);
+        console.error(`Failed To Save To LocalStorage: ${error}.`);
+        alert(`Failed To Save To LocalStorage: ${error}.`);
     }
+    renderList();
+
 })
 
 loadButton.addEventListener('click', function(){
+
+    console.log(`Attempting To Load List From LocalStorage...`);
     try {
-        linkList = JSON.parse(localStorage.getItem('StorageLinkList'));
-        console.log(linkList);
-        renderList();
-        
-        console.log(`Loaded Preset: ${linkList}.`);
-        alert(`Loaded Preset: ${linkList}.`);
+        linksList = JSON.parse(localStorage.getItem('storedLinksList'));
+        console.log(`Loaded Data From LocalStorage Successfully: ${linksList}.`);
     } catch (error) {
-        console.log(`Error Loading Preset: ${error}`);
-        alert(`Error Loading Preset: ${error}`);
+        console.error(`Failed To Load From LocalStorage: ${error}.`);
+        alert(`Failed To Get Data From LocalStorage. You May Have Nothing Saved. Check Console For More Details.`);
     }
+    renderList();
+
 })
 
 runButton.addEventListener('click', function(){
-    
-    for (i = 0; i < linkList.length; i++){
 
+    for(i = 0; i < linksList.length; i++){
+        
         try {
-            console.log(`Attempting To Open: ${linkList[i]}...`)
-            window.open(linkList[i].replace('•', ''));
+
+            if (linksList[i].includes('https://') == true){
+                console.log(`Attempting To Open ${linksList[i]}...`)
+                window.open(linksList[i].replace('•', ''));
+            } else {
+                break;
+            }
+
         } catch (error) {
-            console.log(`Failed To Open: ${linkList[i]}, ${error}`)
+
+            console.error(`Failed To Open Page: ${linksList[i]}`);
+
         }
 
     }
 
 })
 
-footerButton.addEventListener('click', function(){
-    window.open('https://github.com/TheRhet0rical/installr');
+libraryButton.addEventListener('click', function(){
+    window.open('/library.html');
 })

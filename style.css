@@ -1,115 +1,86 @@
 /* Base CSS */
 html {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  text-align: center;
+
   height: 100%;
   width: 100%;
-  font-family: system-ui;    
-  background: linear-gradient(0deg, rgba(105,105,105,1) 0%, rgba(194,194,194,1) 150%);
-  background-attachment: fixed;
+  font-weight: lighter;
+  font-family: system-ui;
+  background-color: #21262d;
 }
 
-.linkArea {
+textarea {
+  width: 500px;
+
+  padding: 7px 0px 7px 0px;
+  resize: none;
   text-align: center;
-  padding: 5px;
+  font-size: 12px;
+  font-family: system-ui;
 
-  border-radius: 5px;
-}
-
-.line {
-  width: 50%;
-  border-bottom: 2px dashed white;
-}
-
-input[type=button]{
-  font-size: 11px;
-
-  border: 0px solid transparent;
-  border-radius: 5px;
-  padding: 10px 20px 10px 20px;
-
-  transition: all ease-in-out 0.1s;
-}
-
-/* Class Specific CSS */
-#title {
   color: white;
-  text-shadow: 3px 3px grey;
-  text-align: center;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: transparent;
 }
 
-#topTitle{
+.flexbox {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#bottomTitle {
-  padding-bottom: 30px;
-  margin-top: -50px;
-}
-
-#linkHandler {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: white;
-  text-shadow: 3px 3px grey;
-}
-
-#linkHolder {
-  resize: none;
-  color: black;
-
-  padding: 5px;
-  margin-bottom: 15px;
-  text-align: center;
-  text-shadow: none;
-
-  border-radius: 5px;
-  background-color: white;
-}
-
-#footerButton {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
+.button {
   user-select: none;
 
-  position: fixed;
-  width: 190px;
-  height: 40px;
-  bottom: 5px;
+  font-size: 13px;
+  font-weight: normal;
 
-  background-color: white;
+  width: 120px;
+  border-radius: 5px;
+  padding: 5px 15px;
   border: 1px solid white;
-  border-radius: 10px;
   
   transition: all ease-in-out 0.1s;
 }
 
-/* Keyframes */
+.button:hover {
+  color: black;
+  background-color: white;
 
-#submitButton:hover {
-  background-color: lightgreen;
-}
-
-#saveButton:hover {
-  background-color: lightskyblue;
-}
-
-#loadButton:hover {
-  background-color: lightsalmon;
-}
-
-#runButton:hover {
-  background-color: red;
-}
-
-#undoButton:hover {
-  background-color: lightgreen;
-}
-
-#footerButton:hover {
-  filter: invert(1);
   cursor: pointer;
 }
+
+.line {
+  margin: auto;
+  width: 700px;
+  border: 1px dashed white;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.description {
+  margin-top: -13px;
+  font-size: 13px;
+}
+
+/* Class Specific CSS */
+#header {
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#footer {
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+/* Keyframes */

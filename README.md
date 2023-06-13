@@ -3,6 +3,9 @@ Installr is a web application designed to ease the *daunting* task of downloadin
 
 Instead of doing the grueling task of downloading the same 15 apps on your new computer, or multiple computers at a time, Installr gets rid of the time-consuming task of going to all these websites and condenses them into a one-time setup task that installs everything in the click of one button.
 
+## **Archive Notice** ⚠️
+This project is no longer being worked on. Should JavaScript update to a newer ES, this project will **NOT** be updated to accomodate.
+
 ## **Note** 📒
 Since the website will attempt to open multiple items at one time, you will need to **disable your pop-up blocker**. Usually, when you first run it, it will let you know in your URL bar. After you do this, everything should work fine from there.
 
